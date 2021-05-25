@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Dangerous | Wing Calculator</title>
+
+  <!-- Scripts -->
+  <script src="resources/js/jquery.js"></script>
+  <script src="resources/js/bootstrap.min.js"></script>
+
+  <!-- Styles -->
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>Elite Dangerous</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-md-3">
+    <section class="text-center">
+      <div class="container">
+        <h1>Wing Trade Calculator</h1>
+      </div>
+    </section>
+
+    <div class="container mb-3">
+      <h4>Wing Members</h4>
+      <form id="calculator" autocomplete="off">
+        <div id="wing-members" class="mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Wing Member 1</span>
+            </div>
+            <input type="text" name="player-name" class="form-control" autocomplete="off" placeholder="Name">
+            <input type="text" name="cargo-capacity" class="form-control" autocomplete="off" placeholder="Cargo Capacity">
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Wing Member 2</span>
+            </div>
+            <input type="text" name="player-name" class="form-control" autocomplete="off" placeholder="Name">
+            <input type="text" name="cargo-capacity" class="form-control" autocomplete="off" placeholder="Cargo Capacity">
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Wing Member 3</span>
+            </div>
+            <input type="text" name="player-name" class="form-control" autocomplete="off" placeholder="Name">
+            <input type="text" name="cargo-capacity" class="form-control" autocomplete="off" placeholder="Cargo Capacity">
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Wing Member 4</span>
+            </div>
+            <input type="text" name="player-name" class="form-control" autocomplete="off" placeholder="Name">
+            <input type="text" name="cargo-capacity" class="form-control" autocomplete="off" placeholder="Cargo Capacity">
+          </div>
+        </div>
+
+        <hr class="my-4" />
+        <h4>Commodities</h4>
+
+        <div id="commodities" class="input-group w-50">
+        </div>
+
+        <div class="mb-3">
+          <input type="button" class="btn btn-block btn-primary" value="Add Commodity" id="add-commodity" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Calculate</button>
+      </form>
+    </div>
+
+    <div class="container mb-3">
+      <table id="output" class="table">
+        <thead>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="resources/js/app.js"></script>
+</body>
+</html>
