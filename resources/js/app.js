@@ -46,9 +46,15 @@ $('#calculator').on('submit', e => {
   let commodities = {};
   for (const el of document.querySelectorAll('#commodities > div')) {
     let name = el.querySelector('[name="commodity-name"]').value;
-    let count = el.querySelector('[name="commodity-count"]').value;
+    let delivered = parseInt(el.querySelector('[name="commodity-delivered"]').value) || 0;
+    let total = parseInt(el.querySelector('[name="commodity-total"]').value) || 0;
+    let count = total - delivered;
 
-    commodities[name] = parseInt(count) || 0;
+    if (name in commodities) {
+      commodities[name] += count;
+    } else {
+      commodities[name] = count;
+    }
   }
 
   let wingMemberKeys = Object.keys(wingMembers).sort((a, b) => (wingMembers[a].cargoCapacity > wingMembers[b].cargoCapacity) ? 1 : -1);
@@ -107,11 +113,12 @@ $("#add-commodity").on('click', e => {
 
   $('#commodities').append(`
     <div class="input-group mb-3">
-      <select class="custom-select" name="commodity-name">
+      <select class="custom-select" data-live-search="true" name="commodity-name">
         ${list}
       </select>
 
-      <input type="text" name="commodity-count" class="form-control" placeholder="Count" value="0">
+      <input type="text" name="commodity-delivered" class="form-control" placeholder="Delivered">
+      <input type="text" name="commodity-total" class="form-control" placeholder="Total" value="0">
 
       <div class="input-group-append">
         <button type="button" name="commodity-delete" class="btn btn-danger">Delete</button>
